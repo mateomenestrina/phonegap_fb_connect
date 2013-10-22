@@ -21,7 +21,6 @@
             if (typeof CDV == 'undefined') alert('CDV variable does not exist. Check that you have included cdv-plugin-fb-connect.js correctly');
             if (typeof FB == 'undefined') alert('FB variable does not exist. Check that you have included the Facebook JS SDK file.');
             
-			
 
 			function connect(){
 				
@@ -37,6 +36,7 @@
 				 });*/
 
  						FB.login(
+
 	                         function(response) {
 
 	                         	console.log(response)
@@ -53,6 +53,27 @@
 
 			}
 
+			function feed(){
+
+
+			    console.log('Debug 1');
+
+				var params = {
+
+				    method: 'feed',
+				    name: 'Facebook Dialogs',
+				    link: 'https://developers.facebook.com/docs/reference/dialogs/',
+				    picture: 'http://fbrell.com/f8.jpg',
+				    caption: 'Reference Documentation',
+				    description: 'asdsad Dialogs provide a simple, consistent interface for applications to interface with users.'
+				};
+				
+				console.log(params);
+				
+			    FB.ui(params, function(obj) { console.log(obj);});
+			
+			}
+
 			document.addEventListener('deviceready', function() {
                                       try {
                                       alert('Device is ready! Make sure you set your app_id below this alert.');
@@ -63,9 +84,12 @@
                                       }
                                       }, false);
 
+
+
 		</script>
 	   
 		<a href="#" onclick="connect()">FB ONNECT</a>
+		<a href="#" onclick="feed()">POST</a>
 		<div id='debug'></div>
 	</body>
 </html>
