@@ -8,7 +8,7 @@
     <!-- versionCode is optional and Android only -->
 
     <name>PhoneGap Example</name>
-
+    
     <description>
         An example for phonegap build docs. 
     </description>
@@ -22,5 +22,11 @@
 
     <preference name="phonegap-version" value="3.0.0" />
     <preference name="fullscreen" value="true" />
+    <access origin="*" />
+
+    <gap:plugin name="com.phonegap.plugins.facebookconnect">
+        <param name="APP_ID" value="1404046476496653" />
+        <param name="APP_NAME" value="Phonegap Testing" />
+    </gap:plugin>
     
 </widget>

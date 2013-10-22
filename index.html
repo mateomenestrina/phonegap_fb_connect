@@ -6,6 +6,7 @@
 	    <title>FB_CONNECT</title> 
 		
 		<script src="phonegap.js"></script>
+		<script src="barcodescanner.js"></script>
 		
 	    
 	    <script type="text/javascript">
@@ -14,16 +15,29 @@
 			function onDeviceReady(){
 
 
+			}
+
+			function connect(){
+
+				FB.login(function(response) {
+				   if (response.authResponse) {
+				    document.getElementById('debug').innerHTML = ('Welcome!  Fetching your information.... ');
+				     FB.api('/me', function(response) {
+				      document.getElementById('debug').innerHTML = ('Good to see you, ' + response.name + '.');
+				     });
+				   } else {
+				    document.getElementById('debug').innerHTML = ('User cancelled login or did not fully authorize.');
+				   }
+				 });
 
 			}
 		</script>
 	   
-
 	</head> 
 	<body>
 		
 		<div id="fb-root"></div>
-		
-
+		<a href="#" onclick="connect()">CF ONNECT</a>
+		<div id='debug'></div>
 	</body>
 </html>
