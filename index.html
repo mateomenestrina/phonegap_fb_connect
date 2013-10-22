@@ -15,8 +15,16 @@
 			document.addEventListener("deviceready", onDeviceReady, false);
 			function onDeviceReady(){
 
-				FB.init({ appId: "1404046476496653", nativeInterface: CDV.FB, useCachedDialogs: false });
-				alert('onDeviceReady');
+				
+				try {
+                       alert('Device is ready! Make sure you set your app_id below this alert.');
+                       FB.init({ appId: "1404046476496653", nativeInterface: CDV.FB, useCachedDialogs: false });
+                       document.getElementById('debug').innerHTML = "";
+                } catch (e) {
+                	
+                               alert(e);
+                }
+                
 			}
 
 			function connect(){
