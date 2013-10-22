@@ -15,17 +15,15 @@
 			document.addEventListener("deviceready", onDeviceReady, false);
 			function onDeviceReady(){
 
-
-				 FB.init({ appId: "1404046476496653", nativeInterface: CDV.FB, useCachedDialogs: false });   
-	            
-
+				FB.init({ appId: "1404046476496653", nativeInterface: CDV.FB, useCachedDialogs: false });
+				alert('onDeviceReady');
 			}
 
 			function connect(){
-				alert('aaa')
+				
 				FB.login(function(response) {
 				   if (response.authResponse) {
-				    document.getElementById('debug').innerHTML = ('Welcome!  Fetching your information.... ');
+				     document.getElementById('debug').innerHTML = ('Welcome!  Fetching your information.... ');
 				     FB.api('/me', function(response) {
 				      document.getElementById('debug').innerHTML = ('Good to see you, ' + response.name + '.');
 				     });
