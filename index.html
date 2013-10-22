@@ -36,17 +36,20 @@
 				   }
 				 });*/
 
- FB.login(
-                         function(response) {
-                         if (response.session) {
-                         alert('logged in');
-                         } else {
-                         alert('not logged in');
-                         }
-                         },
-                         { scope: "email" }
+ 						FB.login(
+	                         function(response) {
+
+	                         	console.log(response)
+
+		                         if (response.session) {
+		                         	alert('logged in');
+		                         } else {
+		                         	alert('not logged in');
+		                         }
+	                         },
+	                         { scope: "email" }
                          );
-				
+
 
 			}
 
