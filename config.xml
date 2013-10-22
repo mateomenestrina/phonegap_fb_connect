@@ -17,4 +17,10 @@
         Hardeep Shoker 
     </author>
 
+    <gap:platform name="ios" />
+    <gap:platform name="android" />
+
+    <preference name="phonegap-version" value="3.0.0" />
+    <preference name="fullscreen" value="true" />
+    
 </widget>
