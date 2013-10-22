@@ -18,11 +18,11 @@
 
 				 FB.init({ appId: "1404046476496653", nativeInterface: CDV.FB, useCachedDialogs: false });   
 	            
-	            
+
 			}
 
 			function connect(){
-
+				alert('aaa')
 				FB.login(function(response) {
 				   if (response.authResponse) {
 				    document.getElementById('debug').innerHTML = ('Welcome!  Fetching your information.... ');
@@ -41,7 +41,7 @@
 	<body>
 		
 		<div id="fb-root"></div>
-		<a href="#" onclick="connect()">CF ONNECT</a>
+		<a href="#" onclick="connect()">FB ONNECT</a>
 		<div id='debug'></div>
 	</body>
 </html>
