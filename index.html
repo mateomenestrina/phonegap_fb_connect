@@ -25,7 +25,7 @@
 
 			function connect(){
 				
-				FB.login(function(response) {
+				/*FB.login(function(response) {
 				   if (response.authResponse) {
 				     document.getElementById('debug').innerHTML = ('Welcome!  Fetching your information.... ');
 				     FB.api('/me', function(response) {
@@ -34,7 +34,19 @@
 				   } else {
 				    document.getElementById('debug').innerHTML = ('User cancelled login or did not fully authorize.');
 				   }
-				 });
+				 });*/
+
+ FB.login(
+                         function(response) {
+                         if (response.session) {
+                         alert('logged in');
+                         } else {
+                         alert('not logged in');
+                         }
+                         },
+                         { scope: "email" }
+                         );
+				
 
 			}
 
@@ -42,7 +54,7 @@
                                       try {
                                       alert('Device is ready! Make sure you set your app_id below this alert.');
                                       FB.init({ appId: "1404046476496653", nativeInterface: CDV.FB, useCachedDialogs: false });
-                                      document.getElementById('data').innerHTML = "";
+                            
                                       } catch (e) {
                                       alert(e);
                                       }
