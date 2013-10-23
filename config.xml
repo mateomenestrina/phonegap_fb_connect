@@ -23,7 +23,6 @@
     <gap:platform name="ios" />
     <gap:platform name="android" />
 
-    
     <gap:plugin name="com.phonegap.plugins.facebookconnect">
         <param name="APP_ID" value="1404046476496653" />
         <param name="APP_NAME" value="Phonegap Testing" />

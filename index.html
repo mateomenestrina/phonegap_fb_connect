@@ -5,7 +5,13 @@
 		<meta charset="utf-8">
 	    <title>FB_CONNECT</title> 
 		
-
+		 <style>
+		      html, body, #map-canvas {
+		        height: 100%;
+		        margin: 0px;
+		        padding: 0px
+		      }
+	    </style>
 	</head> 
 	<body>
 		
@@ -13,7 +19,7 @@
 		<script src="phonegap.js"></script> 
 		<script src="cdv-plugin-fb-connect.js"></script>
 		<script src="facebook-js-sdk.js"></script>
-		
+		 <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=true"></script>
 	    
 	    <script type="text/javascript">
 
@@ -24,28 +30,13 @@
 
 			function connect(){
 				
-				/*FB.login(function(response) {
-				   if (response.authResponse) {
-				     document.getElementById('debug').innerHTML = ('Welcome!  Fetching your information.... ');
-				     FB.api('/me', function(response) {
-				      document.getElementById('debug').innerHTML = ('Good to see you, ' + response.name + '.');
-				     });
-				   } else {
-				    document.getElementById('debug').innerHTML = ('User cancelled login or did not fully authorize.');
-				   }
-				 });*/
-
+			
  						FB.login(
 
 	                         function(response) {
 
 	                         	console.log(response)
 
-		                         if (response.session) {
-		                         	alert('logged in');
-		                         } else {
-		                         	alert('not logged in');
-		                         }
 	                         },
 	                         { scope: "email" }
                          );
@@ -85,11 +76,27 @@
                                       }, false);
 
 
+			var map;
+			function initialize() {
+			  
+			  var mapOptions = {
+			    zoom: 8,
+			    center: new google.maps.LatLng(-34.397, 150.644),
+			    mapTypeId: google.maps.MapTypeId.ROADMAP
+			  };
+
+			  map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+			}
+
+			google.maps.event.addDomListener(window, 'load', initialize);
+
+
 
 		</script>
 	   
 		<a href="#" onclick="connect()">FB ONNECT</a>
 		<a href="#" onclick="feed()">POST</a>
 		<div id='debug'></div>
+		<div id="map-canvas"></div>
 	</body>
 </html>
